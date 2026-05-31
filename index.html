@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Optimization Meta Tags -->
+  <title>CYBER-X 2077 — The Future is No Longer Human</title>
+  <meta name="description" content="Immerse yourself in CYBER-X 2077. Experience the next evolutionary leap in quantum computing, neural engineering, cybernetic augments, and robotic intelligence.">
+  <meta name="keywords" content="Cyberpunk, AI, Neural Network, Augmentation, Robotics, Cybernetics, SpaceX, Apple Vision Pro, Tesla, Awwwards, 3D WebGL">
+  <meta name="author" content="CYBER-X Society">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="CYBER-X 2077 — The Future is No Longer Human">
+  <meta property="og:description" content="Explore the ultimate digital convergence of cybernetics, biology, and quantum superintelligence.">
+  <meta property="og:image" content="assets/hero-cybernetic.png">
+  <meta property="og:type" content="website">
+
+  <!-- Google Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/png" href="assets/hero-cybernetic.png">
+</head>
+<body>
+
+  <!-- =========================================
+       1. FUTURISTIC NEURAL PRELOADER
+       ========================================= -->
+  <div id="preloader" role="dialog" aria-modal="true" aria-label="System Calibration">
+    <div class="loader-bg-aurora"></div>
+    <div class="loader-content">
+      <div class="loader-frame-top"></div>
+      <div class="loader-logo-wrap">
+        <span class="loader-brand">CYBER-X</span>
+        <span class="loader-brand-dot"></span>
+        <span class="loader-brand-year">2077</span>
+      </div>
+      <div class="loader-spinner-wrapper">
+        <svg class="loader-svg-circle" viewBox="0 0 100 100">
+          <circle class="loader-track" cx="50" cy="50" r="45"></circle>
+          <circle class="loader-fill" cx="50" cy="50" r="45" id="preloader-circle-fill"></circle>
+        </svg>
+        <div class="loader-percentage" id="loader-percent">00%</div>
+      </div>
+      <div class="loader-status" id="loader-status-text">INITIALIZING BIO-SYNAPSE DRIVES...</div>
+      <div class="loader-telemetry" id="loader-telemetry-logs">
+        <span>[SYS] Somatic link: CONNECTING</span>
+        <span>[SYS] Firewall core: ACTIVE</span>
+      </div>
+      <div class="loader-frame-bottom"></div>
+    </div>
+  </div>
+
+  <!-- =========================================
+       2. CUSTOM CYBER CURSOR & DYNAMIC BACKGROUNDS
+       ========================================= -->
+  <div class="custom-cursor" id="custom-cursor" aria-hidden="true">
+    <div class="cursor-laser"></div>
+  </div>
+  <div class="custom-cursor-glow" id="custom-cursor-glow" aria-hidden="true"></div>
+
+  <!-- Background Particle & Grid Canvas -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <div class="aurora-glow-blob aurora-cyan" aria-hidden="true"></div>
+  <div class="aurora-glow-blob aurora-purple" aria-hidden="true"></div>
+
+  <!-- =========================================
+       3. SMART NAVIGATION HEADER
+       ========================================= -->
+  <header>
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-container" aria-hidden="true">
+      <div class="reading-progress-bar" id="reading-progress"></div>
+    </div>
+    
+    <nav class="navbar" id="navbar">
+      <a href="#" class="logo-container" aria-label="CYBER-X 2077 Home">
+        <span class="logo">CYBER-X<span class="logo-dot"></span>2077</span>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#hero" class="nav-link active">Core</a></li>
+        <li><a href="#technology" class="nav-link">Showcase</a></li>
+        <li><a href="#evolution" class="nav-link">Timeline</a></li>
+        <li><a href="#statistics" class="nav-link">Metrics</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+      </ul>
+
+      <!-- Navbar Action Controls -->
+      <div class="nav-controls">
+        <!-- Interactive Sound Synth Control (Accessible Web Audio API Synth) -->
+        <button class="nav-audio-toggle" id="audio-toggle" aria-label="Toggle Interface Audio" title="Toggle UI Sound Effects">
+          <span class="audio-wave">
+            <span></span><span></span><span></span><span></span>
+          </span>
+          <span class="audio-label">AUDIO OFF</span>
+        </button>
+
+        <!-- Futuristic Theme Mode Toggle -->
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Switch Theme Mode" title="Toggle Cyber-Dark / Cyber-Light">
+          <svg class="theme-sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span class="theme-toggle-slider"></span>
+        </button>
+
+        <a href="#cta" class="nav-cta btn-magnetic"><span>Access Core</span></a>
+
+        <!-- Responsive Mobile Burger Toggle -->
+        <button class="nav-toggle" id="nav-toggle-btn" aria-label="Open Navigation Menu" aria-controls="nav-menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================================
+       4. CINEMATIC HERO SECTION
+       ========================================= -->
+  <main id="main-content">
+    <section class="hero" id="hero">
+      <div class="hero-grid-overlay" aria-hidden="true"></div>
+      
+      <div class="hero-container">
+        <!-- Hero Left Content -->
+        <div class="hero-content reveal-left">
+          <div class="tagline-container">
+            <div class="glow-badge">NEURAL SINGULARITY</div>
+            <div class="tagline-text">SYS CALIBRATION v10.77</div>
+          </div>
+          
+          <h1 class="hero-title glitch-text" data-text="THE FUTURE IS NO LONGER HUMAN">
+            THE FUTURE IS<br>NO LONGER<br><span class="gradient-accent">HUMAN.</span>
+          </h1>
+          
+          <p class="hero-subtitle">
+            Experience the next evolutionary leap. Deep neural engineering, quantum cybernetics, and human biological augmentation converge into a super-intelligent symbiosis.
+          </p>
+          
+          <div class="hero-buttons">
+            <a href="#technology" class="btn-primary btn-magnetic">
+              <span>Explore Future</span>
+              <div class="btn-glow"></div>
+            </a>
+            <button class="btn-secondary btn-magnetic" id="hero-watch-btn" aria-label="Watch cinematic simulation">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span>Watch Experience</span>
+            </button>
+          </div>
+
+          <!-- Futuristic Real-time Command Log Console -->
+          <div class="terminal-boot-box" aria-live="polite">
+            <div class="terminal-header">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+              <span class="terminal-title">SYNAPSE DRIVE DIAGNOSTIC LOG</span>
+            </div>
+            <div class="terminal-body">
+              <span class="terminal-prompt">&gt;</span>
+              <span class="terminal-text" id="boot-logs">BOOTING SOMATIC CYBERNETIC MESH ENGINE...</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right 3D Visual & Telemetry -->
+        <div class="hero-visual reveal-right">
+          <div class="hero-3d-wrap">
+            <!-- Three.js Holographic webgl canvas -->
+            <canvas id="hero-three-canvas" aria-hidden="true"></canvas>
+
+            <!-- Holographic Vector Hud Overlays -->
+            <div class="hud-orbit-ring hud-ring-inner" aria-hidden="true"></div>
+            <div class="hud-orbit-ring hud-ring-outer" aria-hidden="true"></div>
+
+            <!-- Parallax-controlled Cybernetic Character Image -->
+            <div class="character-frame" id="hero-character-frame">
+              <div class="cyber-character-glow"></div>
+              <img src="assets/hero-cybernetic.png" alt="Futuristic augmented cybernetic humanoid cyborg character" class="cybernetic-character" id="cyber-hero-img">
+              <div class="cyber-scanner-bar" aria-hidden="true"></div>
+            </div>
+
+            <!-- Floating Cybernetic HUD Telemetry Panels -->
+            <div class="hud-floating-panel hud-panel-top btn-magnetic" data-tilt-factor="1.5">
+              <div class="hud-panel-glow"></div>
+              <div class="hud-panel-header">
+                <span class="hud-indicator-dot"></span>
+                <span>NEURAL CONNECT</span>
+              </div>
+              <div class="hud-panel-value text-accent">99.99% ONLINE</div>
+            </div>
+
+            <div class="hud-floating-panel hud-panel-mid btn-magnetic" data-tilt-factor="-1.2">
+              <div class="hud-panel-glow"></div>
+              <div class="hud-panel-header">
+                <span class="hud-indicator-dot purple"></span>
+                <span>SYNAPSTIC LATENCY</span>
+              </div>
+              <div class="hud-panel-value">0.08ms QUANTUM</div>
+            </div>
+
+            <div class="hud-floating-panel hud-panel-bottom btn-magnetic" data-tilt-factor="2.0">
+              <div class="hud-panel-glow"></div>
+              <div class="hud-panel-header">
+                <span class="hud-indicator-dot orange"></span>
+                <span>BIO-AUGMENT</span>
+              </div>
+              <div class="hud-panel-value text-orange">CYBERNETICS LEVEL 5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator-container">
+        <a href="#technology" class="scroll-down-btn" aria-label="Scroll down to technology showcase">
+          <span class="scroll-mouse">
+            <span class="scroll-wheel"></span>
+          </span>
+          <span class="scroll-label">INITIALIZE SCROLL</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- =========================================
+         5. TECHNOLOGY SHOWCASE
+         ========================================= -->
+    <section class="technology" id="technology">
+      <div class="section-container">
+        <div class="section-header reveal-up">
+          <span class="section-badge">CORE INTEGRATION SHOWCASE</span>
+          <h2 class="section-title">CYBERNETIC <span class="gradient-accent">TECHNOLOGY</span></h2>
+          <p class="section-subtitle">Redefining human capability with spatial grids and sub-atomic biological processing modules.</p>
+        </div>
+
+        <div class="tech-grid">
+          <!-- Card 1: AI -->
+          <div class="tech-card glass-card reveal-up btn-magnetic" data-tilt>
+            <div class="card-radial-spotlight" aria-hidden="true"></div>
+            <div class="tech-card-header">
+              <div class="tech-icon-box cyan-glow">
+                <!-- SVG Icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12c0-2.5 1.5-7 5-9M12 2v20M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+              </div>
+              <span class="tech-id">MOD-AI.01</span>
+            </div>
+            <h3 class="tech-title">Artificial Intelligence</h3>
+            <p class="tech-desc">Somatic cortex decision interfaces injecting immediate predictive AI cognitive matrices straight to raw optical lobes.</p>
+            <div class="tech-expand-content">
+              <span class="tech-divider"></span>
+              <div class="tech-specs">
+                <span>THROUGHPUT: 4.8 PB/s</span>
+                <span>ACCURACY: 99.999%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Robotics -->
+          <div class="tech-card glass-card reveal-up btn-magnetic" data-tilt>
+            <div class="card-radial-spotlight" aria-hidden="true"></div>
+            <div class="tech-card-header">
+              <div class="tech-icon-box purple-glow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="9" y1="3" x2="9" y2="21"></line>
+                  <line x1="15" y1="3" x2="15" y2="21"></line>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="3" y1="15" x2="21" y2="15"></line>
+                </svg>
+              </div>
+              <span class="tech-id">MOD-RB.09</span>
+            </div>
+            <h3 class="tech-title">Advanced Robotics</h3>
+            <p class="tech-desc">Physical exoskeletal linkages crafted from carbon fibers and responsive liquid micro-hydraulics for augmented muscle strength.</p>
+            <div class="tech-expand-content">
+              <span class="tech-divider"></span>
+              <div class="tech-specs">
+                <span>LOAD CAPACITY: 12 Tons</span>
+                <span>REACTION DELAY: 0.05ms</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Quantum Computing -->
+          <div class="tech-card glass-card reveal-up btn-magnetic" data-tilt>
+            <div class="card-radial-spotlight" aria-hidden="true"></div>
+            <div class="tech-card-header">
+              <div class="tech-icon-box orange-glow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <span class="tech-id">MOD-Q.04</span>
+            </div>
+            <h3 class="tech-title">Quantum Computing</h3>
+            <p class="tech-desc">Miniature biological-quantum nodes running trillions of sub-atomic calculations inside portable neural augment frameworks.</p>
+            <div class="tech-expand-content">
+              <span class="tech-divider"></span>
+              <div class="tech-specs">
+                <span>COHERENCE TIME: INFINITE</span>
+                <span>QUBITS ACTIVE: 8,192</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Neural Engineering -->
+          <div class="tech-card glass-card reveal-up btn-magnetic" data-tilt>
+            <div class="card-radial-spotlight" aria-hidden="true"></div>
+            <div class="tech-card-header">
+              <div class="tech-icon-box cyan-glow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
+                  <line x1="19.07" y1="19.07" x2="14.83" y2="14.83"></line>
+                  <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
+                  <line x1="9.17" y1="14.83" x2="4.93" y2="19.07"></line>
+                </svg>
+              </div>
+              <span class="tech-id">MOD-NE.05</span>
+            </div>
+            <h3 class="tech-title">Neural Engineering</h3>
+            <p class="tech-desc">Integrating sub-dermal mesh links that double cortical node speeds and map human synapses directly into cloud grids.</p>
+            <div class="tech-expand-content">
+              <span class="tech-divider"></span>
+              <div class="tech-specs">
+                <span>GRID FREQUENCY: 8.4 GHz</span>
+                <span>CORE VOLTAGE: 0.12V</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Cyber Security -->
+          <div class="tech-card glass-card reveal-up btn-magnetic" data-tilt>
+            <div class="card-radial-spotlight" aria-hidden="true"></div>
+            <div class="tech-card-header">
+              <div class="tech-icon-box purple-glow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <span class="tech-id">MOD-SEC.11</span>
+            </div>
+            <h3 class="tech-title">Cyber Security</h3>
+            <p class="tech-desc">Advanced quantum firewall matrix shields, instantly blocking cerebral data intrusions and malicious rogue netrunners.</p>
+            <div class="tech-expand-content">
+              <span class="tech-divider"></span>
+              <div class="tech-specs">
+                <span>INTENSITY: CLASS 9</span>
+                <span>DECRYPT TIME: &gt; 100 Yrs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Space Technology -->
+          <div class="tech-card glass-card reveal-up btn-magnetic" data-tilt>
+            <div class="card-radial-spotlight" aria-hidden="true"></div>
+            <div class="tech-card-header">
+              <div class="tech-icon-box orange-glow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2a10 10 0 0 0-10 10c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10z"></path>
+                  <path d="M12 6v12M6 12h12"></path>
+                </svg>
+              </div>
+              <span class="tech-id">MOD-SPC.07</span>
+            </div>
+            <h3 class="tech-title">Space Technology</h3>
+            <p class="tech-desc">Connecting deep-space quantum laser relays directly to orbit nodes, offering high speed telemetric syncing in real time.</p>
+            <div class="tech-expand-content">
+              <span class="tech-divider"></span>
+              <div class="tech-specs">
+                <span>BANDWIDTH: 1.2 TB/s</span>
+                <span>ORBIT RANGE: 36,000 km</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         6. INTERACTIVE TIMELINE
+         ========================================= -->
+    <section class="evolution" id="evolution">
+      <div class="section-container">
+        <div class="section-header reveal-up">
+          <span class="section-badge">TEMPORAL CHRONOLOGY</span>
+          <h2 class="section-title">THE HISTORICAL <span class="gradient-accent">EVOLUTION</span></h2>
+          <p class="section-subtitle">How physical and digital implants transformed human civilization from tools to standard biological singularity.</p>
+        </div>
+
+        <div class="timeline-scroll-wrapper" id="timeline-horizontal-scroll">
+          <div class="timeline-progress-rail" aria-hidden="true">
+            <div class="timeline-progress-track" id="timeline-scroll-progress"></div>
+          </div>
+          
+          <div class="timeline-grid-container">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-node-card reveal-scale" data-year="2025">
+              <div class="timeline-indicator-glow"></div>
+              <div class="timeline-date">2025</div>
+              <h3 class="timeline-node-title">AI Revolution</h3>
+              <p class="timeline-node-desc">Advanced synthetic computing matrices linked directly into municipal data hubs, phasing out classical programmatic script architectures.</p>
+              <div class="timeline-border-decor"></div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="timeline-node-card reveal-scale" data-year="2035">
+              <div class="timeline-indicator-glow"></div>
+              <div class="timeline-date">2035</div>
+              <h3 class="timeline-node-title">Human-AI Convergence</h3>
+              <p class="timeline-node-desc">Direct interface networks established. Synthetic neural arrays translate cerebral thoughts into spatial models at the speed of synapses.</p>
+              <div class="timeline-border-decor"></div>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="timeline-node-card reveal-scale" data-year="2050">
+              <div class="timeline-indicator-glow"></div>
+              <div class="timeline-date">2050</div>
+              <h3 class="timeline-node-title">Neural Integration</h3>
+              <p class="timeline-node-desc">Subdermal neural sockets become commercial standards, allowing real-time high-fidelity knowledge downloads and memories syncing.</p>
+              <div class="timeline-border-decor"></div>
+            </div>
+
+            <!-- Timeline Item 4 -->
+            <div class="timeline-node-card reveal-scale" data-year="2065">
+              <div class="timeline-indicator-glow"></div>
+              <div class="timeline-date">2065</div>
+              <h3 class="timeline-node-title">Cyborg Augmentation</h3>
+              <p class="timeline-node-desc">Exoskeletal structures and biometric sensory systems replace conventional medical limbs as universal upgrades within smart metropolis bounds.</p>
+              <div class="timeline-border-decor"></div>
+            </div>
+
+            <!-- Timeline Item 5 -->
+            <div class="timeline-node-card reveal-scale" data-year="2077">
+              <div class="timeline-indicator-glow"></div>
+              <div class="timeline-date">2077</div>
+              <h3 class="timeline-node-title">Digital Evolution</h3>
+              <p class="timeline-node-desc">Singularity achieved. Complete convergence between organic biology, biomechanical nodes, and global quantum supercomputing networks.</p>
+              <div class="timeline-border-decor"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         7. STATISTICS SECTION
+         ========================================= -->
+    <section class="statistics" id="statistics">
+      <div class="stats-container-grid">
+        <!-- Stat Item 1 -->
+        <div class="stat-indicator-box reveal-up glass-card">
+          <div class="stat-accent-bar cyan"></div>
+          <div class="stat-number-wrap">
+            <span class="stat-value counter-numeric" data-target="10" data-suffix="M+">0</span>
+          </div>
+          <p class="stat-label">Connected Minds</p>
+          <div class="stat-hud-meter">
+            <div class="stat-hud-fill cyan-fill" style="width: 85%;"></div>
+          </div>
+        </div>
+
+        <!-- Stat Item 2 -->
+        <div class="stat-indicator-box reveal-up glass-card" style="transition-delay: 0.15s;">
+          <div class="stat-accent-bar purple"></div>
+          <div class="stat-number-wrap">
+            <span class="stat-value counter-numeric" data-target="500" data-suffix="+">0</span>
+          </div>
+          <p class="stat-label">AI Systems</p>
+          <div class="stat-hud-meter">
+            <div class="stat-hud-fill purple-fill" style="width: 92%;"></div>
+          </div>
+        </div>
+
+        <!-- Stat Item 3 -->
+        <div class="stat-indicator-box reveal-up glass-card" style="transition-delay: 0.3s;">
+          <div class="stat-accent-bar orange"></div>
+          <div class="stat-number-wrap">
+            <span class="stat-value counter-numeric" data-target="120" data-suffix="+">0</span>
+          </div>
+          <p class="stat-label">Countries Integrated</p>
+          <div class="stat-hud-meter">
+            <div class="stat-hud-fill orange-fill" style="width: 78%;"></div>
+          </div>
+        </div>
+
+        <!-- Stat Item 4 -->
+        <div class="stat-indicator-box reveal-up glass-card" style="transition-delay: 0.45s;">
+          <div class="stat-accent-bar cyan"></div>
+          <div class="stat-number-wrap">
+            <span class="stat-value counter-numeric" data-target="99.99" data-suffix="%">0.00</span>
+          </div>
+          <p class="stat-label">Neural Accuracy</p>
+          <div class="stat-hud-meter">
+            <div class="stat-hud-fill cyan-fill" style="width: 99%;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         8. FUTURE GALLERY
+         ========================================= -->
+    <section class="gallery" id="gallery">
+      <div class="section-container">
+        <div class="section-header reveal-up">
+          <span class="section-badge">VISUAL CORE ARCHIVES</span>
+          <h2 class="section-title">THE METROPOLIS <span class="gradient-accent">GALLERY</span></h2>
+          <p class="section-subtitle">Visual database entries displaying somatic hardware configurations and orbital blueprints.</p>
+        </div>
+
+        <div class="gallery-layout-grid">
+          <!-- Gallery Item 1 -->
+          <div class="gallery-item-card reveal-scale" data-category="METROPOLIS" data-spec="DENSITY: 88,400/KM² | NETWORK: QUANTUM-MESH">
+            <div class="gallery-image-wrapper">
+              <img src="assets/gallery-cityscape.png" alt="Futuristic neon lit towering cyberpunk metropolis skyline city cityscape" class="gallery-img">
+              <div class="gallery-card-spotlight"></div>
+            </div>
+            <div class="gallery-info-overlay">
+              <span class="gallery-tag">METROPOLIS</span>
+              <h4 class="gallery-item-title">Neo Skyline</h4>
+              <div class="gallery-hud-expand">INSPECT DATA</div>
+            </div>
+          </div>
+
+          <!-- Gallery Item 2 -->
+          <div class="gallery-item-card reveal-scale" data-category="SCIENCE" data-spec="TEMP: 0.001 KELVIN | FOCUS: CELL-CLONING" style="transition-delay: 0.15s;">
+            <div class="gallery-image-wrapper">
+              <img src="assets/gallery-lab.png" alt="Futuristic glowing scientific research lab quantum computing machinery" class="gallery-img">
+              <div class="gallery-card-spotlight"></div>
+            </div>
+            <div class="gallery-info-overlay">
+              <span class="gallery-tag">SCIENCE</span>
+              <h4 class="gallery-item-title">Quantum Lab</h4>
+              <div class="gallery-hud-expand">INSPECT DATA</div>
+            </div>
+          </div>
+
+          <!-- Gallery Item 3 -->
+          <div class="gallery-item-card reveal-scale" data-category="AUTOMATION" data-spec="MODEL: ANDROID-X1 | VOLTAGE: 440V CORE" style="transition-delay: 0.3s;">
+            <div class="gallery-image-wrapper">
+              <img src="assets/gallery-robot.png" alt="White humanoid android robot cybernetic artificial intelligence machinery" class="gallery-img">
+              <div class="gallery-card-spotlight"></div>
+            </div>
+            <div class="gallery-info-overlay">
+              <span class="gallery-tag">AUTOMATION</span>
+              <h4 class="gallery-item-title">Somatic Android</h4>
+              <div class="gallery-hud-expand">INSPECT DATA</div>
+            </div>
+          </div>
+
+          <!-- Gallery Item 4 -->
+          <div class="gallery-item-card reveal-scale" data-category="ENVIRONMENT" data-spec="AIR: 98% PURIFIED | GRID: DYNAMIC-SOLAR">
+            <div class="gallery-image-wrapper">
+              <img src="assets/gallery-smartcity.png" alt="Eco futuristic smart city skyscraper architecture green space integration" class="gallery-img">
+              <div class="gallery-card-spotlight"></div>
+            </div>
+            <div class="gallery-info-overlay">
+              <span class="gallery-tag">ENVIRONMENT</span>
+              <h4 class="gallery-item-title">Eco SmartCity</h4>
+              <div class="gallery-hud-expand">INSPECT DATA</div>
+            </div>
+          </div>
+
+          <!-- Gallery Item 5 -->
+          <div class="gallery-item-card reveal-scale" data-category="TRANSPORT" data-spec="SPEED: MACH 1.8 | CELL: PLASMA ION" style="transition-delay: 0.15s;">
+            <div class="gallery-image-wrapper">
+              <img src="assets/gallery-flyingvehicle.png" alt="Futuristic high speed glowing hover vehicle supercar transport hovercar flying" class="gallery-img">
+              <div class="gallery-card-spotlight"></div>
+            </div>
+            <div class="gallery-info-overlay">
+              <span class="gallery-tag">TRANSPORT</span>
+              <h4 class="gallery-item-title">Hover Supercar</h4>
+              <div class="gallery-hud-expand">INSPECT DATA</div>
+            </div>
+          </div>
+
+          <!-- Gallery Item 6 -->
+          <div class="gallery-item-card reveal-scale" data-category="SPACE TECH" data-spec="HEIGHT: 420KM LEO | LASERS: ACTIVE MESH" style="transition-delay: 0.3s;">
+            <div class="gallery-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Detailed space habitat orbital laser transmission satellite planet curvature" class="gallery-img">
+              <div class="gallery-card-spotlight"></div>
+            </div>
+            <div class="gallery-info-overlay">
+              <span class="gallery-tag">SPACE TECH</span>
+              <h4 class="gallery-item-title">Orbital Station</h4>
+              <div class="gallery-hud-expand">INSPECT DATA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         9. IMMERSIVE LIGHTBOX VIEW
+         ========================================= -->
+    <div class="lightbox-overlay" id="lightbox-container" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Visual data inspection console">
+      <div class="lightbox-glitch-border"></div>
+      
+      <!-- Close Button -->
+      <button class="lightbox-close-btn" id="lightbox-close" aria-label="Close visual inspector">&times;</button>
+      
+      <div class="lightbox-content-box">
+        <div class="lightbox-hud-specs-left">
+          <div class="spec-hud-item">
+            <span class="label">ENTRY FILE</span>
+            <span class="val text-accent" id="lightbox-val-file">DATA_FILE_09.PNG</span>
+          </div>
+          <div class="spec-hud-item">
+            <span class="label">SECTOR MAP</span>
+            <span class="val" id="lightbox-val-sector">METROPOLIS CORE</span>
+          </div>
+          <div class="spec-hud-item">
+            <span class="label">STATUS CODE</span>
+            <span class="val text-orange">SYNAPSE SECURE</span>
+          </div>
+        </div>
+
+        <div class="lightbox-visual-frame">
+          <img src="" alt="" class="lightbox-active-img" id="lightbox-img">
+          <div class="lightbox-grid-overlay" aria-hidden="true"></div>
+          <div class="lightbox-crosshair top-left"></div>
+          <div class="lightbox-crosshair top-right"></div>
+          <div class="lightbox-crosshair bottom-left"></div>
+          <div class="lightbox-crosshair bottom-right"></div>
+        </div>
+
+        <div class="lightbox-hud-specs-right">
+          <div class="spec-hud-item">
+            <span class="label">SPECS READOUT</span>
+            <span class="val text-orange" id="lightbox-val-specs">LATENCY: 0ms | INTEGRATED</span>
+          </div>
+          <p class="lightbox-technical-log">
+            CALIBRATION PROTOCOL INITIATED. ENCRYPTED VISUAL FEED ROUTED DIRECTLY THROUGH CEREBRAL TERMINAL CORE. UNAUTHORIZED SHARING REPRESENTS BIO-SHIELD PENALTIES.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================
+         10. TESTIMONIALS CAROUSEL
+         ========================================= -->
+    <section class="testimonials" id="reviews">
+      <div class="section-container">
+        <div class="section-header reveal-up">
+          <span class="section-badge">QUALIFIED RESPONDENTS</span>
+          <h2 class="section-title">FEEDBACK FROM <span class="gradient-accent">THE COGNITIVE</span></h2>
+          <p class="section-subtitle">Real reports submitted by organic cyber-augmented intelligence coordinators.</p>
+        </div>
+
+        <!-- Marquee Carousel Wrapper -->
+        <div class="testimonial-carousel-viewport">
+          <div class="testimonial-carousel-track" id="testimonial-track">
+            
+            <!-- Card 1 -->
+            <div class="testimonial-review-card glass-card">
+              <div class="testimonial-star-rating" aria-label="Rating: 5 out of 5 stars">
+                <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              </div>
+              <p class="testimonial-quote">
+                "Connecting my primary visual cortex directly into the Cyber-X core has elevated research outputs by 400%. Complex multi-variable computing matrices download in minutes."
+              </p>
+              <div class="reviewer-meta-box">
+                <img src="assets/hero-cybernetic.png" alt="Portrait avatar of Dr. Kaelen Vance" class="reviewer-profile-avatar">
+                <div class="reviewer-data">
+                  <h4 class="reviewer-name">Dr. Kaelen Vance</h4>
+                  <span class="reviewer-title">Lead Cognitive Researcher</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="testimonial-review-card glass-card">
+              <div class="testimonial-star-rating" aria-label="Rating: 5 out of 5 stars">
+                <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              </div>
+              <p class="testimonial-quote">
+                "Upgrading to liquid hydraulic exoskeleton appendages has eliminated robotic calibration alignment faults. Perfect motor control across heavy manufacturing arrays."
+              </p>
+              <div class="reviewer-meta-box">
+                <img src="assets/gallery-robot.png" alt="Portrait avatar of Elena Rostova" class="reviewer-profile-avatar">
+                <div class="reviewer-data">
+                  <h4 class="reviewer-name">Elena Rostova</h4>
+                  <span class="reviewer-title">Robotics Systems Architect</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="testimonial-review-card glass-card">
+              <div class="testimonial-star-rating" aria-label="Rating: 5 out of 5 stars">
+                <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              </div>
+              <p class="testimonial-quote">
+                "The cloned mitochondrial optical port shields have optimized satellite high-altitude transmission grids, providing immediate volumetric projection maps to my workspace."
+              </p>
+              <div class="reviewer-meta-box">
+                <img src="assets/gallery-lab.png" alt="Portrait avatar of Dr. Jaxson Thorne" class="reviewer-profile-avatar">
+                <div class="reviewer-data">
+                  <h4 class="reviewer-name">Dr. Jaxson Thorne</h4>
+                  <span class="reviewer-title">Deep Space Telemetry Coordinator</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 (Duplicate for Carousel Continuity) -->
+            <div class="testimonial-review-card glass-card" aria-hidden="true">
+              <div class="testimonial-star-rating">
+                <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              </div>
+              <p class="testimonial-quote">
+                "Connecting my primary visual cortex directly into the Cyber-X core has elevated research outputs by 400%. Complex multi-variable computing matrices download in minutes."
+              </p>
+              <div class="reviewer-meta-box">
+                <img src="assets/hero-cybernetic.png" alt="" class="reviewer-profile-avatar">
+                <div class="reviewer-data">
+                  <h4 class="reviewer-name">Dr. Kaelen Vance</h4>
+                  <span class="reviewer-title">Lead Cognitive Researcher</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5 (Duplicate for Carousel Continuity) -->
+            <div class="testimonial-review-card glass-card" aria-hidden="true">
+              <div class="testimonial-star-rating">
+                <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              </div>
+              <p class="testimonial-quote">
+                "Upgrading to liquid hydraulic exoskeleton appendages has eliminated robotic calibration alignment faults. Perfect motor control across heavy manufacturing arrays."
+              </p>
+              <div class="reviewer-meta-box">
+                <img src="assets/gallery-robot.png" alt="" class="reviewer-profile-avatar">
+                <div class="reviewer-data">
+                  <h4 class="reviewer-name">Elena Rostova</h4>
+                  <span class="reviewer-title">Robotics Systems Architect</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         11. PORTAL CALL TO ACTION
+         ========================================= -->
+    <section class="cta" id="cta">
+      <div class="cta-glowing-backdrop" aria-hidden="true"></div>
+      
+      <div class="cta-glass-card glass-card reveal-scale">
+        <div class="cta-inner-glow"></div>
+        <div class="cta-content-alignment">
+          <span class="cta-badge">CORE SECURITY KEY REQUIRED</span>
+          <h2 class="cta-headline">SECURE YOUR SYNAPSE<br>COHERENCE INDEX</h2>
+          <p class="cta-desc text-muted">
+            Initialize your direct somatic integration bridge. Deploy real-time neural data firewall nodes and unlock augmented human capacity thresholds today.
+          </p>
+          <div class="cta-button-cluster">
+            <button class="btn-primary btn-magnetic" id="cta-initialize-btn" aria-label="Initialize somatic uplink">
+              <span>Get Started</span>
+              <div class="btn-glow"></div>
+            </button>
+            <a href="#technology" class="btn-secondary btn-magnetic">
+              <span>Review Specifications</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================
+       12. FUTURISTIC NEON FOOTER
+       ========================================= -->
+  <footer class="footer">
+    <div class="footer-glow-aurora" aria-hidden="true"></div>
+    
+    <div class="footer-top-grid">
+      <!-- Brand Segment -->
+      <div class="footer-brand-col">
+        <span class="footer-logo">CYBER-X<span class="logo-dot"></span>2077</span>
+        <p class="footer-tagline text-muted">
+          Pioneering the definitive technological convergence between quantum neural architectures, sub-atomic processor mesh nets, and augmented biology.
+        </p>
+        
+        <!-- Social Networks with Magnetic pull -->
+        <div class="footer-social-cluster">
+          <!-- Github -->
+          <a href="#" class="social-icon-btn btn-magnetic" aria-label="CYBER-X GitHub Repository" title="GitHub">
+            <svg class="social-svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+            </svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" class="social-icon-btn btn-magnetic" aria-label="CYBER-X LinkedIn Page" title="LinkedIn">
+            <svg class="social-svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" class="social-icon-btn btn-magnetic" aria-label="CYBER-X Instagram Profile" title="Instagram">
+            <svg class="social-svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 0.013-3.583 0.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259 0.014 3.668 0.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+            </svg>
+          </a>
+          <!-- Email -->
+          <a href="mailto:cyberx2077@gmail.com" class="social-icon-btn btn-magnetic" aria-label="Direct Email Terminal Connection" title="Email Connection">
+            <svg class="social-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer Columns -->
+      <div class="footer-links-col">
+        <h4 class="footer-heading">Architecture</h4>
+        <ul class="footer-list">
+          <li><a href="#hero" class="footer-link">Somatic Core</a></li>
+          <li><a href="#technology" class="footer-link">Tech Showcase</a></li>
+          <li><a href="#evolution" class="footer-link">Chronology Path</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4 class="footer-heading">Data Feeds</h4>
+        <ul class="footer-list">
+          <li><a href="#statistics" class="footer-link">Sync Metrics</a></li>
+          <li><a href="#gallery" class="footer-link">Inspect Gallery</a></li>
+          <li><a href="#reviews" class="footer-link">Respondent Log</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter Segment -->
+      <div class="footer-newsletter-col">
+        <h4 class="footer-heading">Neural Newsletter</h4>
+        <p class="newsletter-sub text-muted">Receive monthly diagnostic reports and technology updates directly through biological routers.</p>
+        <form class="newsletter-form-container" id="newsletter-form" action="#" method="POST" novalidate>
+          <div class="newsletter-input-box">
+            <input type="email" class="newsletter-input" id="newsletter-email" placeholder="NETRUNNER@DOMAIN.COM" aria-label="Email for Netrunner Newsletter" required>
+            <div class="newsletter-glow-line" aria-hidden="true"></div>
+          </div>
+          <button type="submit" class="newsletter-submit-btn btn-magnetic" aria-label="Submit email to neural database">
+            <span>UPLINK</span>
+          </button>
+        </form>
+        <span class="newsletter-status-msg" id="newsletter-status" aria-live="polite"></span>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom-bar">
+      <div class="copyright-text">
+        &copy; 2077 CYBER-X SOCIETY. ALL COGNITIVE DRIVES AND ORGANIC MODIFICATIONS SECURED.
+      </div>
+      <div class="footer-legal-links">
+        <a href="#" class="legal-link">PRIVACY PORTAL</a>
+        <span class="legal-divider"></span>
+        <a href="#" class="legal-link">TERMS OF TRANSMISSION</a>
+        <span class="legal-divider"></span>
+        <a href="#" class="legal-link">TERMINAL KEY</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back-to-Top Core Button -->
+  <button class="back-to-top-btn btn-magnetic" id="back-to-top" aria-label="Scroll back to top of terminal" title="Return to Somatic Core">
+    <svg class="back-to-top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+    <span class="btt-glow"></span>
+  </button>
+
+  <!-- =========================================
+       13. INTERACTIVE CLIENT SCRIPTS (THREE.JS & GSAP & WEB AUDIO SYNTH)
+       ========================================= -->
+  <!-- CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  
+  <!-- Custom Application Script -->
+  <script src="index.js" defer></script>
+</body>
+</html>
